@@ -1,0 +1,22 @@
+/* Ambient glow blur orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  animation: orbDrift 14s ease-in-out infinite alternate;
+}
+
+@keyframes orbDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -40px) scale(1.08); }
+}
+
+/* Subtle floating badge */
+@keyframes delicateFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+.floating-badge {
+  animation: delicateFloat 3.5s ease-in-out infinite;
+}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lizeth Díaz | Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          },
+          colors: {
+            blush: {
+              50: '#FFF8F9',
+              100: '#FEEDF0',
+              200: '#FCD8E0',
+              300: '#F9B4C4',
+              400: '#F485A1',
+              500: '#E8587F',
+            },
+            pearl: '#FAF7F5',
+            plum: '#2E2029',
+            mutedPlum: '#7D6A75'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-blush-50 text-plum antialiased selection:bg-blush-300 selection:text-plum lg:h-screen lg:overflow-hidden relative">
+
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div class="glow-orb -top-20 -left-20 w-[550px] h-[550px] bg-blush-200/50"></div>
+    <div class="glow-orb top-1/2 right-0 w-[600px] h-[600px] bg-blush-100/70"></div>
+    <div class="glow-orb -bottom-20 left-1/3 w-[500px] h-[500px] bg-[#F5E6FA]/50"></div>
+  </div>
+
+  <!-- FLOATING SIDEBAR NAVIGATION (Izquierda) -->
+  <nav class="side-navbar hidden 2xl:flex" aria-label="Quick navigation">
+    <a href="#profile" class="nav-item active" title="Profile">
+      <i data-lucide="user" class="w-4 h-4"></i>
+    </a>
+    <a href="#education" class="nav-item" title="Education">
+      <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+    </a>
+    <a href="#skills" class="nav-item" title="Skills">
+      <i data-lucide="sparkles" class="w-4 h-4"></i>
+    </a>
+    <a href="#projects" class="nav-item" title="Projects">
+      <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+    </a>
+    <a href="#hobbies" class="nav-item" title="Hobbies">
+      <i data-lucide="heart" class="w-4 h-4"></i>
+    </a>
+    <a href="#crypto" class="nav-item" title="Cryptography">
+      <i data-lucide="lock" class="w-4 h-4"></i>
+    </a>
+  </nav>
+
+  <!-- CONTENEDOR EXPANDIDO PARA ELIMINAR ESPACIOS LATERALES -->
+  <div class="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-4 md:py-6 h-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+    
+    <!-- COLUMNA IZQUIERDA: PERFIL Y WIDGETS -->
+    <aside id="profile" class="lg:col-span-4 h-full overflow-y-auto pr-1 space-y-4 custom-scrollbar">
+      
+      <!-- Primary Profile Card -->
+      <div class="glass-pill p-6 rounded-3xl border border-white/80 shadow-md flex flex-col items-center text-center">
+        
+        <!-- Foto de Perfil + Badge Remielle -->
+        <div class="relative mb-4">
+          <div class="w-32 h-32 md:w-36 md:h-36 rounded-[2rem] p-1 bg-gradient-to-br from-white via-blush-200 to-blush-300 shadow-lg shadow-blush-300/30">
+            <img src="assets/img/perfil.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400'" alt="Lizeth Díaz" class="w-full h-full rounded-[1.8rem] object-cover">
+          </div>
+          <div class="absolute -bottom-1 -right-1 glass-badge p-1.5 rounded-xl shadow border border-white floating-badge">
+            <img src="assets/img/remielle-chibi.png" onerror="this.src='https://api.iconify.design/lucide:sparkles.svg?color=%23f485a1'" alt="Remielle badge" class="w-7 h-7 object-contain">
+          </div>
+        </div>
+
+        <span class="font-mono text-[10px] uppercase font-bold text-blush-500 bg-blush-100 px-3 py-1 rounded-full mb-2 border border-blush-200">
+          ESCOM • IPN
+        </span>
+
+        <!-- Nombre estilizado -->
+        <h1 class="font-serif text-2xl md:text-3xl text-plum font-bold tracking-tight">
+          Lizeth <span class="italic font-light text-blush-400">Díaz González</span>
+        </h1>
+        <p class="text-xs font-mono text-mutedPlum mt-1">Computer Systems Engineering Student</p>
+
+        <p class="text-xs text-mutedPlum leading-relaxed mt-3 text-center font-light">
+          Computer Systems Engineering student specializing in web development, OOP, and relational databases. Experienced in building web applications, utilizing frameworks, and designing efficient software solutions. Skilled in teamwork, continuous learning, and committed to software quality and optimal user experiences.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="w-full mt-4 space-y-2">
+          <a href="assets/docs/cv.pdf" download class="btn-primary-editorial w-full justify-center group">
+            <i data-lucide="arrow-down-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></i>
+            <span>Download CV</span>
+          </a>
+          <a href="assets/docs/publickey.asc" download class="btn-secondary-editorial w-full justify-center group">
+            <i data-lucide="key" class="w-4 h-4 text-blush-400 transition-transform group-hover:rotate-12"></i>
+            <span>Download Public Key</span>
+          </a>
+        </div>
+
+        <!-- Social Media Links (SVGs incrustados de alta visibilidad) -->
+        <div class="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-blush-200/60 w-full">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" class="contact-pill group" title="LinkedIn">
+            <svg class="w-4 h-4 fill-current text-blush-400 group-hover:text-blush-500 transition-colors" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.55a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com/lizethdg_14" target="_blank" rel="noopener noreferrer" class="contact-pill group" title="Instagram">
+            <svg class="w-4 h-4 fill-none stroke-current text-blush-400 group-hover:text-blush-500 transition-colors stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/LizethDG" target="_blank" rel="noopener noreferrer" class="contact-pill group" title="GitHub">
+            <svg class="w-4 h-4 fill-current text-blush-400 group-hover:text-blush-500 transition-colors" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:ldiazg1900@alumno.ipn.mx" class="contact-pill group" title="Institutional Email">
+            <svg class="w-4 h-4 fill-none stroke-current text-blush-400 group-hover:text-blush-500 transition-colors stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- WIDGET 2: LANGUAGES -->
+      <div class="editorial-card p-5 rounded-3xl space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="font-serif text-sm font-bold text-plum flex items-center gap-1.5">
+            <i data-lucide="languages" class="w-3.5 h-3.5 text-blush-400"></i>
+            <span>Languages</span>
+          </h3>
+        </div>
+        <div class="space-y-2.5 text-xs">
+          <div>
+            <div class="flex justify-between text-mutedPlum mb-1 font-mono text-[10px]">
+              <span>English</span>
+              <span class="text-blush-500 font-semibold">Professional Working</span>
+            </div>
+            <div class="w-full h-1.5 bg-blush-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-blush-300 to-blush-400 rounded-full w-[85%]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WIDGET 3: SECURITY QUOTE -->
+      <div class="editorial-card p-5 rounded-3xl bg-gradient-to-br from-white via-blush-50 to-blush-100/40">
+        <div class="flex items-center gap-2 mb-2">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blush-400"></i>
+        </div>
+        <p class="font-serif italic text-xs text-mutedPlum leading-relaxed">
+          "I hope I'm strong enough to walk beside you now. It's good to have someone to follow and rely on, but I want more than that. Just like you once protected me… it's my turn to protect you."
+        </p>
+        <span class="block text-[10px] font-mono text-blush-400 mt-2 font-semibold">— Aemeath</span>
+      </div>
+
+    </aside>
+
+    <!-- COLUMNA DERECHA: CONTENIDO PRINCIPAL -->
+    <main class="lg:col-span-8 h-full overflow-y-auto pr-2 space-y-10 custom-scrollbar pb-8">
+      
+      <!-- 1. ACADEMIC BACKGROUND -->
+      <section id="education" class="space-y-4 pt-2">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-serif italic text-xl text-blush-400">01.</span>
+          <h2 class="text-xl font-bold tracking-tight text-plum">Academic Background</h2>
+          <div class="h-px flex-1 bg-blush-200"></div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Higher Education -->
+          <div class="editorial-card p-6 rounded-3xl bg-gradient-to-r from-white to-blush-100/40">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-xs font-bold text-blush-500 bg-white px-3 py-1 rounded-full shadow-sm">2022 — Present</span>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-plum">Escuela Superior de Cómputo (ESCOM - IPN)</h3>
+            <p class="text-xs font-semibold text-blush-400 mb-2">Computer Systems Engineering Student</p>
+            <p class="text-xs md:text-sm text-mutedPlum leading-relaxed">
+              Comprehensive coursework covering algorithm analysis, secure software architecture, computer networks, and applied cryptography.
+            </p>
+          </div>
+
+          <!-- Secondary & Upper Secondary en 2 Columnas -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="editorial-card p-5 rounded-3xl flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-mono text-xs text-mutedPlum">2019 — 2022</span>
+                </div>
+                <h3 class="font-serif text-base font-bold text-plum mt-2">[Centro de Estudios Científicos y Tecnológicos N°1 "Gonzalo Vázquez Vela"]</h3>
+                <p class="text-xs text-mutedPlum mt-1.5 leading-relaxed">Focus on physical-mathematical sciences and foundational computing logic.</p>
+              </div>
+            </div>
+
+            <div class="editorial-card p-5 rounded-3xl flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-mono text-xs text-mutedPlum">2016 — 2019</span>
+                </div>
+                <h3 class="font-serif text-base font-bold text-plum mt-2">[Escuela Secundaria Diurna N° 217 "Carlos Casas Campillo"]</h3>
+                <p class="text-xs text-mutedPlum mt-1.5 leading-relaxed">Basic secondary education with emphasis on analytical and mathematical skills.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. TECHNICAL PROFICIENCY -->
+      <section id="skills" class="space-y-4">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-serif italic text-xl text-blush-400">02.</span>
+          <h2 class="text-xl font-bold tracking-tight text-plum">Technical Proficiency</h2>
+          <div class="h-px flex-1 bg-blush-200"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <!-- Category 1: Languages & Programming -->
+          <div class="editorial-card p-6 rounded-3xl space-y-4">
+            <div class="flex items-center justify-between border-b border-blush-100 pb-3">
+              <h3 class="font-serif font-bold text-lg text-plum flex items-center gap-2">
+                <i data-lucide="terminal" class="w-4 h-4 text-blush-400"></i>
+                <span>Programming</span>
+              </h3>
+              <span class="font-mono text-[10px] text-blush-500 bg-blush-50 px-2.5 py-0.5 rounded-full">Proficiency</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">Python</span>
+                  <span class="text-[10px] text-mutedPlum">Data Science & Vision</span>
+                </div>
+                <div class="star-rating" title="4 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">C / C++</span>
+                  <span class="text-[10px] text-mutedPlum">Systems & Algorithms</span>
+                </div>
+                <div class="star-rating" title="3 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">Java</span>
+                  <span class="text-[10px] text-mutedPlum">OOP & Software Design</span>
+                </div>
+                <div class="star-rating" title="3 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">SQL & Databases</span>
+                  <span class="text-[10px] text-mutedPlum">Relational Queries</span>
+                </div>
+                <div class="star-rating" title="3 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Security & Tools -->
+          <div class="editorial-card p-6 rounded-3xl space-y-4">
+            <div class="flex items-center justify-between border-b border-blush-100 pb-3">
+              <h3 class="font-serif font-bold text-lg text-plum flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-blush-400"></i>
+                <span>Security & Tools</span>
+              </h3>
+              <span class="font-mono text-[10px] text-blush-500 bg-blush-50 px-2.5 py-0.5 rounded-full">Proficiency</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">Symmetric Ciphers (AES)</span>
+                  <span class="text-[10px] text-mutedPlum">Implementation & Modes</span>
+                </div>
+                <div class="star-rating" title="4 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">Public Key (PGP / RSA)</span>
+                  <span class="text-[10px] text-mutedPlum">Signatures & Key Pairs</span>
+                </div>
+                <div class="star-rating" title="4 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">OpenCV & ONNX</span>
+                  <span class="text-[10px] text-mutedPlum">Model Inference</span>
+                </div>
+                <div class="star-rating" title="4 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-xs text-plum block">PyTorch & CNNs</span>
+                  <span class="text-[10px] text-mutedPlum">Model Training</span>
+                </div>
+                <div class="star-rating" title="3 of 5 stars">
+                  <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. FEATURED PROJECTS -->
+      <section id="projects" class="space-y-4">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-serif italic text-xl text-blush-400">03.</span>
+          <h2 class="text-xl font-bold tracking-tight text-plum">Featured Projects</h2>
+          <div class="h-px flex-1 bg-blush-200"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <div class="editorial-card p-5 rounded-3xl flex flex-col justify-between group cursor-pointer" onclick="openDetail('syslocker')">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-[10px] font-bold text-blush-500 bg-blush-100 px-2.5 py-0.5 rounded-full">Security & Vision</span>
+                <span class="text-[10px] font-mono text-blush-400 flex items-center gap-1 group-hover:text-blush-500">
+                  <span>View Details</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-plum mb-1.5 group-hover:text-blush-500 transition-colors">SysLocker • Biometric Locker</h3>
+              <p class="text-xs text-mutedPlum leading-relaxed">
+                Intelligent access control system featuring facial recognition via ONNX inference pipelines, live anti-spoofing verification, and database encryption.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-blush-100 flex items-center justify-between text-[11px] font-mono text-mutedPlum">
+              <span>Python • OpenCV • AES-256</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-blush-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+            </div>
+          </div>
+
+          <div class="editorial-card p-5 rounded-3xl flex flex-col justify-between group cursor-pointer" onclick="openDetail('cnn')">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-[10px] font-bold text-blush-500 bg-blush-100 px-2.5 py-0.5 rounded-full">Deep Learning</span>
+                <span class="text-[10px] font-mono text-blush-400 flex items-center gap-1 group-hover:text-blush-500">
+                  <span>View Details</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-plum mb-1.5 group-hover:text-blush-500 transition-colors">CNN Image Classifier</h3>
+              <p class="text-xs text-mutedPlum leading-relaxed">
+                Deep learning preprocessing pipeline and convolutional neural network built with PyTorch, evaluating loss trajectories and multi-class accuracy.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-blush-100 flex items-center justify-between text-[11px] font-mono text-mutedPlum">
+              <span>PyTorch • Scikit-Learn • Data</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-blush-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. FAVORITE HOBBIES -->
+      <section id="hobbies" class="space-y-4">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-serif italic text-xl text-blush-400">04.</span>
+          <h2 class="text-xl font-bold tracking-tight text-plum">Favorite Hobbies</h2>
+          <div class="h-px flex-1 bg-blush-200"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
+          <div class="editorial-card rounded-3xl overflow-hidden flex flex-col group">
+            <div class="h-28 overflow-hidden bg-blush-100 relative">
+              <img src="assets/img/hobby-gaming.jpg" onerror="this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400'" alt="Video Games" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute bottom-2 left-2 p-1.5 rounded-xl bg-white/90 backdrop-blur-sm text-blush-500 shadow-sm">
+                <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-serif text-base font-bold text-plum mb-1">Gaming</h3>
+                <p class="text-xs text-mutedPlum leading-relaxed">
+                  Gaming enthusiast with a love for immersive storytelling, responsive combat mechanics, and atmospheric world design across PC and console platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="editorial-card rounded-3xl overflow-hidden flex flex-col group">
+            <div class="h-28 overflow-hidden bg-blush-100 relative">
+              <img src="assets/img/hobby-cat.jpg" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400'" alt="Cat companion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute bottom-2 left-2 p-1.5 rounded-xl bg-white/90 backdrop-blur-sm text-blush-500 shadow-sm">
+                <i data-lucide="cat" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-serif text-base font-bold text-plum mb-1">Feline Companionship</h3>
+                <p class="text-xs text-mutedPlum leading-relaxed">
+                  Caring for and relaxing with my cat, the ideal way to decompress after intensive coding and debugging sessions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="editorial-card rounded-3xl overflow-hidden flex flex-col group">
+            <div class="h-28 overflow-hidden bg-blush-100 relative">
+              <img src="assets/img/hobby-learning.png" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=400'" alt="Continuous Learning" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute bottom-2 left-2 p-1.5 rounded-xl bg-white/90 backdrop-blur-sm text-blush-500 shadow-sm">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-serif text-base font-bold text-plum mb-1">Continuous Learning & Exploration</h3>
+                <p class="text-xs text-mutedPlum leading-relaxed">
+                  Curious and self-driven, always excited to explore new technologies, programming paradigms, and creative disciplines that broaden my technical and personal perspectives.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. CRYPTOGRAPHY FACTS -->
+      <section id="crypto" class="space-y-4">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="font-serif italic text-xl text-blush-400">05.</span>
+          <h2 class="text-xl font-bold tracking-tight text-plum">Cryptography Highlights</h2>
+          <div class="h-px flex-1 bg-blush-200"></div>
+        </div>
+
+        <div class="space-y-4">
+          
+          <div class="editorial-card rounded-3xl p-5 md:p-6 flex flex-col sm:flex-row gap-5 items-center cursor-pointer group" onclick="openDetail('enigma')">
+            <div class="w-full sm:w-36 h-28 rounded-2xl overflow-hidden relative flex-shrink-0">
+              <img src="assets/img/crypto-enigma.jpg" onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400'" alt="Enigma Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-plum/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-white/90 text-blush-500"><i data-lucide="play" class="w-4 h-4 fill-current"></i></span>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-mono text-[9px] uppercase font-bold text-blush-500 bg-blush-100 px-2 py-0.5 rounded-full inline-block">Fact #1</span>
+                <span class="text-[10px] font-mono text-blush-400 flex items-center gap-1 group-hover:text-blush-500">
+                  <span>Watch & Read</span>
+                  <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-plum mb-1 group-hover:text-blush-500 transition-colors">The Enigma Machine</h3>
+              <p class="text-xs text-mutedPlum leading-relaxed">
+                Capable of generating over 150 trillion possible rotor configurations. Cryptanalysis spearheaded by Alan Turing at Bletchley Park significantly shortened the war.
+              </p>
+            </div>
+          </div>
+
+          <div class="editorial-card rounded-3xl p-5 md:p-6 flex flex-col sm:flex-row gap-5 items-center cursor-pointer group" onclick="openDetail('scytale')">
+            <div class="w-full sm:w-36 h-28 rounded-2xl overflow-hidden relative flex-shrink-0">
+              <img src="assets/img/crypto-scytale.jpg" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400'" alt="Spartan Scytale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-plum/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-white/90 text-blush-500"><i data-lucide="play" class="w-4 h-4 fill-current"></i></span>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-mono text-[9px] uppercase font-bold text-blush-500 bg-blush-100 px-2 py-0.5 rounded-full inline-block">Fact #2</span>
+                <span class="text-[10px] font-mono text-blush-400 flex items-center gap-1 group-hover:text-blush-500">
+                  <span>Watch & Read</span>
+                  <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-plum mb-1 group-hover:text-blush-500 transition-colors">The Spartan Scytale</h3>
+              <p class="text-xs text-mutedPlum leading-relaxed">
+                Considered the earliest military transposition cipher device. A strip of leather was wrapped around a baton of fixed diameter; without an identical rod, the text remained illegible.
+              </p>
+            </div>
+          </div>
+
+          <div class="editorial-card rounded-3xl p-5 md:p-6 flex flex-col sm:flex-row gap-5 items-center cursor-pointer group" onclick="openDetail('voynich')">
+            <div class="w-full sm:w-36 h-28 rounded-2xl overflow-hidden relative flex-shrink-0">
+              <img src="assets/img/crypto-voynich.jpg" onerror="this.src='https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400'" alt="Voynich Manuscript" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-plum/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-white/90 text-blush-500"><i data-lucide="play" class="w-4 h-4 fill-current"></i></span>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-mono text-[9px] uppercase font-bold text-blush-500 bg-blush-100 px-2 py-0.5 rounded-full inline-block">Fact #3</span>
+                <span class="text-[10px] font-mono text-blush-400 flex items-center gap-1 group-hover:text-blush-500">
+                  <span>Watch & Read</span>
+                  <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </span>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-plum mb-1 group-hover:text-blush-500 transition-colors">The Voynich Manuscript</h3>
+              <p class="text-xs text-mutedPlum leading-relaxed">
+                An illustrated 15th-century codex written in an unidentified script. Even with modern computational tools, its text remains one of cryptography's greatest unsolved puzzles.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL DINÁMICO -->
+  <div id="detail-modal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      
+      <div class="mb-4">
+        <span id="modal-category" class="font-mono text-[10px] uppercase font-bold text-blush-500 bg-blush-100 px-3 py-1 rounded-full border border-blush-200"></span>
+        <h2 id="modal-title" class="font-serif text-2xl md:text-3xl text-plum font-bold mt-2"></h2>
+      </div>
+
+      <div id="modal-video-container" class="video-wrapper hidden">
+        <video id="modal-video" controls class="w-full rounded-2xl">
+          <source id="modal-video-src" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div id="modal-body" class="modal-text font-sans text-xs md:text-sm leading-relaxed text-mutedPlum mt-4 space-y-3"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
