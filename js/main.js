@@ -41,40 +41,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Lógica de Modales Dinámicos
 function openDetail(key) {
-  if (typeof detailData === 'undefined' || !detailData[key]) return;
+  if (typeof modalData === 'undefined') return;
+  const item = modalData[key];
+  if (!item) return;
 
-  const item = detailData[key];
+  document.getElementById('modal-category').textContent = item.category || "";
+  document.getElementById('modal-title').textContent = item.title || "";
+  document.getElementById('modal-body').innerHTML = item.body || "";
 
-  document.getElementById("modal-category").innerText = item.category;
-  document.getElementById("modal-title").innerText = item.title;
-  document.getElementById("modal-body").innerHTML = item.body;
+  const videoContainer = document.getElementById('modal-video-container');
+  const videoElem = document.getElementById('modal-video');
+  const videoSrc = document.getElementById('modal-video-src');
+  const iframeElem = document.getElementById('modal-iframe');
+  
+  const imageContainer = document.getElementById('modal-image-container');
+  const imageElem = document.getElementById('modal-image');
 
-  const videoWrapper = document.getElementById("modal-video-container");
-  const video = document.getElementById("modal-video");
-  const videoSrc = document.getElementById("modal-video-src");
+  const galleryContainer = document.getElementById('modal-gallery-container');
+  const galleryGrid = document.getElementById('modal-gallery-grid');
 
-  if (item.video) {
-    videoSrc.src = item.video;
-    video.load();
-    videoWrapper.classList.remove("hidden");
-  } else {
-    videoWrapper.classList.add("hidden");
-    video.pause();
+  // Resetear vistas
+  if (videoElem) {
+    videoElem.pause();
+    videoElem.classList.add('hidden');
+  }
+  if (iframeElem) {
+    iframeElem.src = "";
+    iframeElem.classList.add('hidden');
+  }
+  if (videoContainer) videoContainer.classList.add('hidden');
+  if (imageContainer) imageContainer.classList.add('hidden');
+  if (galleryContainer) galleryContainer.classList.add('hidden');
+  if (galleryGrid) galleryGrid.innerHTML = "";
+
+  // 1. Mostrar Video si existe
+  if (item.video && item.video.trim() !== "") {
+    videoContainer.classList.remove('hidden');
+    if (item.video.includes('youtube.com') || item.video.includes('youtu.be')) {
+      iframeElem.src = item.video;
+      iframeElem.classList.remove('hidden');
+    } else {
+      videoSrc.src = item.video;
+      videoElem.load();
+      videoElem.classList.remove('hidden');
+    }
   }
 
-  document.getElementById("detail-modal").classList.remove("hidden");
+  // 2. Mostrar Imagen individual si existe
+  if (item.image && item.image.trim() !== "") {
+    if (imageContainer && imageElem) {
+      imageElem.src = item.image;
+      imageContainer.classList.remove('hidden');
+    }
+  }
+
+  // 3. Mostrar Galería de Fotos si existe
+  if (item.gallery && Array.isArray(item.gallery) && item.gallery.length > 0) {
+    galleryContainer.classList.remove('hidden');
+    item.gallery.forEach(imgUrl => {
+      const img = document.createElement('img');
+      img.src = imgUrl;
+      img.alt = item.title;
+      img.className = "w-full h-32 object-cover rounded-xl border border-blush-200 hover:scale-[1.02] transition-transform duration-300 shadow-sm";
+      galleryGrid.appendChild(img);
+    });
+  }
+
+  document.getElementById('detail-modal').classList.remove('hidden');
 }
 
 function closeModal() {
-  const modal = document.getElementById("detail-modal");
-  const video = document.getElementById("modal-video");
+  const modal = document.getElementById('detail-modal');
+  if (modal) modal.classList.add('hidden');
 
-  if (video) {
-    video.pause();
-    video.currentTime = 0;
-  }
-  
-  modal.classList.add("hidden");
+  const videoElem = document.getElementById('modal-video');
+  if (videoElem) videoElem.pause();
+
+  const iframeElem = document.getElementById('modal-iframe');
+  if (iframeElem) iframeElem.src = "";
+
+  const imageElem = document.getElementById('modal-image');
+  if (imageElem) imageElem.src = "";
+
+  const galleryGrid = document.getElementById('modal-gallery-grid');
+  if (galleryGrid) galleryGrid.innerHTML = "";
 }
 
 // Cerrar modal al presionar Escape
